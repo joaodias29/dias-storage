@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dias Store | Simulador de Vendas e ERP</title>
-    <meta name="description" content="Simulador completo de e-commerce e gestão financeira ERP.">
+    <meta name="description" content="Simulador completo de e-commerce e gestão financeira ERP com relatórios mensais e calendário interativo.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,15 +14,12 @@
          VISÃO DA LOJA (DIAS STORE)
          ========================================== -->
     <div id="store-view" class="text-[#e2e8f0] min-h-screen flex flex-col">
-        <!-- Header da Loja -->
         <header class="flex justify-between items-center p-4 md:p-6 border-b-2 border-purple-600 bg-[#1a1a24] sticky top-0 z-40 shadow-lg">
             <div class="text-xl md:text-2xl font-bold uppercase tracking-widest text-white cursor-pointer" onclick="navigateStore('home')">
                 Dias <span class="text-teal-400">Store</span>
             </div>
             <nav class="flex items-center space-x-4 md:space-x-6 font-medium">
                 <button onclick="navigateStore('home')" class="hidden md:block hover:text-purple-400 transition-colors">Vitrine</button>
-                
-                <!-- Botão ERP super visível -->
                 <button onclick="requestAdminAccess()" class="bg-teal-500 text-black px-6 py-2 md:py-3 rounded-full font-black hover:bg-teal-400 transition-all shadow-[0_0_20px_rgba(45,212,191,0.6)] animate-pulse flex items-center gap-2">
                     <svg class="w-5 h-5 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     Simulador ERP
@@ -31,26 +28,21 @@
         </header>
 
         <main class="flex-grow w-full max-w-7xl mx-auto p-4 md:p-6">
-            
-            <!-- PÁGINA 1: VITRINE (HOME) -->
             <section id="store-home" class="store-section transition-opacity duration-300">
-                
-                <!-- Hero Banner -->
                 <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden relative mb-12 shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-50">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f13] to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-6 md:p-10">
                         <span class="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Novas Customizações</span>
                         <h1 class="text-4xl md:text-6xl font-black text-white mb-2">Setup <span class="text-teal-400">Lendário</span>.</h1>
-                        <p class="text-gray-300 text-lg md:text-xl max-w-xl">Edições limitadas com designs exclusivos de jogos. Faça a sua simulação de compra agora.</p>
+                        <p class="text-gray-300 text-lg md:text-xl max-w-xl">Edições limitadas com designs exclusivos. Faça a sua simulação de compra agora.</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Produto 1 -->
                     <div class="bg-[#1a1a24] rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all cursor-pointer group flex flex-col" onclick="loadProduct(1)">
                         <div class="h-48 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80" alt="PS5 Custom God of War" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute top-2 right-2 bg-rose-600 text-xs font-bold px-2 py-1 rounded text-white uppercase shadow">Exclusivo</div>
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
@@ -62,45 +54,39 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Produto 2 -->
                     <div class="bg-[#1a1a24] rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all cursor-pointer group flex flex-col" onclick="loadProduct(2)">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1612282130134-4b6782488a0e?auto=format&fit=crop&w=600&q=80" alt="Nintendo Switch Zelda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1612282130134-4b6782488a0e?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
                             <h3 class="text-lg font-bold text-white mb-1">Switch OLED - Zelda</h3>
-                            <p class="text-sm text-gray-400 mb-4 flex-grow">Joy-cons dourados e arte do reino de Hyrule.</p>
+                            <p class="text-sm text-gray-400 mb-4 flex-grow">Joy-cons dourados e arte de Hyrule.</p>
                             <div class="flex justify-between items-center border-t border-gray-700 pt-3">
                                 <span class="text-teal-400 font-bold text-lg">R$ 2.800</span>
                                 <button class="bg-slate-800 group-hover:bg-purple-600 text-white p-2 rounded-full transition-colors">→</button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Produto 3 -->
                     <div class="bg-[#1a1a24] rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all cursor-pointer group flex flex-col" onclick="loadProduct(3)">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1628527304948-0615f6176313?auto=format&fit=crop&w=600&q=80" alt="Controle Xbox Halo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1628527304948-0615f6176313?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
                             <h3 class="text-lg font-bold text-white mb-1">Controle Xbox - Halo</h3>
-                            <p class="text-sm text-gray-400 mb-4 flex-grow">Pintura militar Master Chief com grip extra.</p>
+                            <p class="text-sm text-gray-400 mb-4 flex-grow">Pintura Master Chief e grip extra.</p>
                             <div class="flex justify-between items-center border-t border-gray-700 pt-3">
                                 <span class="text-teal-400 font-bold text-lg">R$ 650</span>
                                 <button class="bg-slate-800 group-hover:bg-purple-600 text-white p-2 rounded-full transition-colors">→</button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Produto 4 -->
                     <div class="bg-[#1a1a24] rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-all cursor-pointer group flex flex-col" onclick="loadProduct(4)">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=600&q=80" alt="Console Retro PRO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://images.unsplash.com/photo-1605901309584-818e25960b8f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-5 flex flex-col flex-grow">
                             <h3 class="text-lg font-bold text-white mb-1">Console Retro PRO</h3>
-                            <p class="text-sm text-gray-400 mb-4 flex-grow">Máquina arcade compacta com LEDs neon.</p>
+                            <p class="text-sm text-gray-400 mb-4 flex-grow">Máquina arcade com LEDs neon.</p>
                             <div class="flex justify-between items-center border-t border-gray-700 pt-3">
                                 <span class="text-teal-400 font-bold text-lg">R$ 500</span>
                                 <button class="bg-slate-800 group-hover:bg-purple-600 text-white p-2 rounded-full transition-colors">→</button>
@@ -110,29 +96,21 @@
                 </div>
             </section>
 
-            <!-- PÁGINA 2: CUSTOMIZAÇÃO DE PRODUTO -->
+            <!-- CUSTOMIZAÇÃO -->
             <section id="store-product" class="store-section hidden transition-opacity duration-300">
                 <button onclick="navigateStore('home')" class="text-gray-400 hover:text-white mb-6 flex items-center gap-2">
                     ← Voltar para a vitrine
                 </button>
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Galeria -->
                     <div class="flex flex-col relative">
                         <div class="relative w-full aspect-[4/3] bg-[#1a1a24] rounded-xl overflow-hidden border border-gray-700 flex items-center justify-center">
-                            <img id="product-image-detail" src="" alt="Produto Customizável" class="object-cover w-full h-full">
+                            <img id="product-image-detail" src="" class="object-cover w-full h-full">
                         </div>
                     </div>
-
-                    <!-- Customização -->
                     <div class="flex flex-col">
                         <h1 id="product-title-detail" class="text-3xl md:text-4xl font-bold text-white mb-2">--</h1>
                         <p class="text-gray-400 mb-6">Selecione os adicionais desejados. O valor será atualizado em tempo real.</p>
-                        
-                        <div class="text-4xl font-bold text-teal-400 mb-8 drop-shadow-[0_0_10px_rgba(45,212,191,0.3)]" id="store-price">
-                            R$ 0,00
-                        </div>
-
+                        <div class="text-4xl font-bold text-teal-400 mb-8 drop-shadow-[0_0_10px_rgba(45,212,191,0.3)]" id="store-price">R$ 0,00</div>
                         <form id="store-form" class="space-y-6">
                             <div class="bg-[#1a1a24] p-5 rounded-lg border border-gray-700">
                                 <h3 class="text-purple-400 font-semibold mb-3">1. Acabamento Premium</h3>
@@ -145,7 +123,6 @@
                                     <span>Pintura Automotiva Brilhante (+ R$ 150)</span>
                                 </label>
                             </div>
-
                             <div class="bg-[#1a1a24] p-5 rounded-lg border border-gray-700">
                                 <h3 class="text-purple-400 font-semibold mb-3">2. Garantia Estendida</h3>
                                 <label class="flex items-center space-x-3 mb-2 cursor-pointer">
@@ -157,7 +134,6 @@
                                     <span>Garantia Total 1 Ano (+ R$ 120)</span>
                                 </label>
                             </div>
-
                             <button type="button" onclick="openCheckoutModal()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg py-4 rounded-lg transition-colors shadow-[0_0_15px_rgba(147,51,234,0.4)]">
                                 🛒 Comprar e Finalizar
                             </button>
@@ -175,8 +151,7 @@
         <div id="checkout-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 hidden">
             <div class="bg-[#1a1a24] p-6 md:p-8 rounded-xl border border-purple-600 w-full max-w-md shadow-2xl m-4 relative max-h-screen overflow-y-auto">
                 <h2 class="text-2xl font-bold text-white mb-2">Finalizar Compra</h2>
-                <p class="text-gray-400 text-sm mb-6">Preencha os dados de faturamento para gerar o pedido no ERP.</p>
-                
+                <p class="text-gray-400 text-sm mb-6">Preencha os dados para gerar o pedido no ERP.</p>
                 <form id="checkout-form" class="space-y-4">
                     <div>
                         <label class="block text-sm text-gray-300 mb-1">Empresa / Nome Completo</label>
@@ -199,7 +174,6 @@
                             <option value="6">6x sem juros no Boleto</option>
                         </select>
                     </div>
-                    
                     <div class="flex space-x-4 pt-4">
                         <button type="button" onclick="closeCheckoutModal()" class="w-1/2 border border-gray-600 text-gray-300 py-2 rounded hover:bg-gray-800 transition-colors">Cancelar</button>
                         <button type="submit" class="w-1/2 bg-teal-500 text-black font-bold py-2 rounded hover:bg-teal-400 transition-colors shadow">Confirmar</button>
@@ -211,7 +185,7 @@
 
 
     <!-- ==========================================
-         VISÃO DO PAINEL ADMIN (GESTÃO DE VENDAS / ERP)
+         VISÃO DO PAINEL ADMIN (ERP)
          ========================================== -->
     <div id="admin-view" class="bg-slate-100 text-slate-800 min-h-screen hidden">
         <nav class="bg-slate-900 text-white shadow-md print:hidden">
@@ -231,43 +205,50 @@
             </div>
         </nav>
 
-        <main class="max-w-7xl mx-auto px-4 py-8">
+        <main class="max-w-7xl mx-auto px-4 py-8 relative">
             
-            <!-- MÓDULO: DASHBOARD E CALENDÁRIO -->
+            <!-- DASHBOARD COM RELATÓRIOS E COMPARAÇÃO MENSAL -->
             <section id="dashboard" class="admin-section transition-opacity duration-300">
-                <h2 class="text-2xl font-bold mb-6 text-slate-900">Visão Geral Financeira</h2>
+                <div class="flex justify-between items-end mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900">Visão Geral Financeira (Mês Atual)</h2>
+                    <span id="dash-month-label" class="bg-slate-200 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">--</span>
+                </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- KPI 1 -->
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-blue-600 hover:shadow-md transition">
                         <h3 class="text-slate-500 text-xs font-bold uppercase tracking-wider">Total Faturado</h3>
                         <p class="text-3xl font-black mt-2 text-slate-800" id="dash-total">R$ 0,00</p>
+                        <div id="trend-total" class="mt-3 inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded bg-slate-100 text-slate-500">--</div>
                     </div>
+                    <!-- KPI 2 -->
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-amber-500 hover:shadow-md transition">
-                        <h3 class="text-slate-500 text-xs font-bold uppercase tracking-wider">A Receber</h3>
+                        <h3 class="text-slate-500 text-xs font-bold uppercase tracking-wider">A Receber no Mês</h3>
                         <p class="text-3xl font-black mt-2 text-amber-600" id="dash-pending">R$ 0,00</p>
+                        <div id="trend-pending" class="mt-3 inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded bg-slate-100 text-slate-500">--</div>
                     </div>
+                    <!-- KPI 3 -->
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-rose-600 hover:shadow-md transition">
-                        <h3 class="text-slate-500 text-xs font-bold uppercase tracking-wider">Inadimplência</h3>
+                        <h3 class="text-slate-500 text-xs font-bold uppercase tracking-wider">Inadimplência (Atrasos)</h3>
                         <p class="text-3xl font-black mt-2 text-rose-600" id="dash-overdue">R$ 0,00</p>
+                        <div id="trend-overdue" class="mt-3 inline-flex items-center gap-1 text-xs font-bold px-2 py-1 rounded bg-slate-100 text-slate-500">--</div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- NOVO: Calendário Visual -->
+                    <!-- Calendário INTERATIVO -->
                     <div>
                         <h3 class="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
                             <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             Calendário de Vencimentos
+                            <span class="text-xs font-normal text-slate-400 ml-2">(Clique nos dias marcados)</span>
                         </h3>
                         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                             <div id="calendar-header" class="flex justify-between items-center mb-4 font-bold text-lg text-slate-700 capitalize">--</div>
                             <div class="grid grid-cols-7 gap-1 md:gap-2 text-center text-xs font-bold text-slate-400 mb-2">
                                 <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
                             </div>
-                            <div id="calendar-grid" class="grid grid-cols-7 gap-1 md:gap-2 text-sm">
-                                <!-- Preenchido via JS -->
-                            </div>
+                            <div id="calendar-grid" class="grid grid-cols-7 gap-1 md:gap-2 text-sm"></div>
                             <div class="mt-4 flex items-center gap-4 text-xs text-slate-500 justify-center">
                                 <div class="flex items-center gap-1"><div class="w-3 h-3 bg-rose-500 rounded-full"></div> Atrasado</div>
                                 <div class="flex items-center gap-1"><div class="w-3 h-3 bg-amber-500 rounded-full"></div> A Vencer</div>
@@ -275,21 +256,35 @@
                         </div>
                     </div>
 
-                    <!-- Timeline Agenda -->
+                    <!-- Timeline -->
                     <div>
                         <h3 class="text-xl font-bold mb-4 text-slate-800">Próximas Cobranças</h3>
                         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 h-[350px] overflow-y-auto">
-                            <ul id="agenda-list" class="divide-y divide-slate-100">
-                                <!-- Injetado por JS -->
-                            </ul>
+                            <ul id="agenda-list" class="divide-y divide-slate-100"></ul>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- Demais seções Admin mantidas com idêntica funcionalidade -->
-            
+            <!-- Modal do Calendário (Detalhes do Dia) -->
+            <div id="calendar-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden print:hidden">
+                <div class="bg-white p-6 rounded-xl w-full max-w-lg shadow-2xl m-4 relative max-h-[90vh] flex flex-col">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-3 mb-4">
+                        <h2 class="text-xl font-bold text-slate-800" id="cal-modal-title">Cobranças do Dia</h2>
+                        <button onclick="closeCalendarModal()" class="text-slate-400 hover:text-rose-500 font-bold text-2xl leading-none">&times;</button>
+                    </div>
+                    <div class="overflow-y-auto flex-grow pr-2">
+                        <ul id="cal-modal-list" class="space-y-3">
+                            <!-- Injetado via JS -->
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-200 text-right">
+                        <button onclick="closeCalendarModal()" class="bg-slate-800 text-white px-6 py-2 rounded-lg font-bold hover:bg-slate-700 transition">Fechar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRM -->
             <section id="clientes" class="admin-section hidden transition-opacity duration-300">
                 <h2 class="text-2xl font-bold mb-6 text-slate-900">Base de Clientes (CRM)</h2>
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
@@ -310,6 +305,7 @@
                 </div>
             </section>
 
+            <!-- VENDA MANUAL (CORRIGIDA COM SELEÇÃO DE PRODUTO) -->
             <section id="nova-venda" class="admin-section hidden transition-opacity duration-300">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-slate-900">Registrar Venda Manualmente</h2>
@@ -317,33 +313,51 @@
                 </div>
                 <form id="venda-form" class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200 space-y-8">
                     <div>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4">Dados do Cliente</h3>
+                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4">1. Dados do Cliente</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                             <input type="text" id="cli-cnpj" placeholder="CNPJ/CPF" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
                             <input type="text" id="cli-nome" placeholder="Nome da Empresa/Cliente" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500 md:col-span-2" required>
-                            <input type="tel" id="cli-contato" placeholder="WhatsApp" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                            <input type="tel" id="cli-contato" placeholder="WhatsApp (com DDD)" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4">Produto e Valores</h3>
+                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4">2. Produto e Valores</h3>
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-                            <input type="text" id="prod-desc" placeholder="Descrição" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500 md:col-span-2" required>
-                            <input type="number" id="prod-qtd" value="1" min="1" oninput="calcTotalAdmin()" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                            <div class="md:col-span-2">
+                                <select id="prod-select" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                                    <option value="">Selecione um produto do catálogo...</option>
+                                    <option value="1">PS5 - Edição God of War</option>
+                                    <option value="2">Switch OLED - Zelda</option>
+                                    <option value="3">Controle Xbox - Halo</option>
+                                    <option value="4">Console Retro PRO</option>
+                                    <option value="custom">Outro (Personalizado)</option>
+                                </select>
+                                <input type="text" id="prod-desc-custom" placeholder="Digite a descrição do produto..." class="border p-2.5 rounded w-full bg-white focus:ring-teal-500 mt-3 hidden">
+                            </div>
+                            <input type="number" id="prod-qtd" value="1" min="1" placeholder="Qtd" oninput="calcTotalAdmin()" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
                             <input type="number" step="0.01" id="prod-unitario" placeholder="Valor Unit." oninput="calcTotalAdmin()" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
                         </div>
+                        <div class="mt-4 text-right">
+                            <span class="text-sm text-slate-500">Valor Total do Pedido:</span>
+                            <span id="display-total-item" class="text-2xl font-black text-slate-800 ml-2">R$ 0,00</span>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <input type="number" min="1" id="pag-parcelas" value="1" placeholder="Parcelas" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
-                        <input type="date" id="pag-vencimento" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4">3. Faturamento</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <input type="number" min="1" id="pag-parcelas" value="1" placeholder="Parcelas" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                            <input type="date" id="pag-vencimento" class="border p-2.5 rounded w-full bg-slate-50 focus:ring-teal-500" required>
+                        </div>
                     </div>
                     <div class="flex justify-end pt-4 border-t border-slate-100">
-                        <button type="submit" class="bg-teal-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-teal-700 shadow-md transition">Salvar Venda</button>
+                        <button type="submit" class="bg-teal-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-teal-700 shadow-md transition">Confirmar e Salvar Venda</button>
                     </div>
                 </form>
             </section>
 
+            <!-- RELATÓRIOS -->
             <section id="relatorios" class="admin-section hidden transition-opacity duration-300">
-                <h2 class="text-2xl font-bold mb-6 text-slate-900">Boletos e Relatórios</h2>
+                <h2 class="text-2xl font-bold mb-6 text-slate-900">Boletos e Histórico</h2>
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="min-w-full text-sm text-left">
@@ -364,6 +378,7 @@
                 </div>
             </section>
 
+            <!-- BOLETO -->
             <section id="boleto-view" class="admin-section hidden bg-white border border-slate-300 shadow-xl max-w-4xl mx-auto print:shadow-none print:border-none p-0">
                 <div class="p-8 pb-4">
                     <div class="flex justify-between items-center border-b-2 border-slate-900 pb-2 mb-4">
@@ -373,7 +388,6 @@
                             <p class="font-bold text-slate-800" id="bol-pedido">PED-0000</p>
                         </div>
                     </div>
-                    
                     <div class="grid grid-cols-3 gap-4 mb-4 text-sm">
                         <div class="col-span-2 border border-slate-300 p-2 rounded-sm">
                             <p class="text-[10px] uppercase font-bold text-slate-500">Cedente / Beneficiário</p>
@@ -384,13 +398,11 @@
                             <p class="font-bold text-slate-800">1234 / 56789-0</p>
                         </div>
                     </div>
-
                     <div class="border border-slate-300 p-3 rounded-sm mb-6 text-sm">
                         <p class="text-[10px] uppercase font-bold text-slate-500">Pagador / Cliente</p>
                         <p class="font-bold text-slate-800" id="bol-cliente">--</p>
                         <p class="text-slate-600" id="bol-cnpj">--</p>
                     </div>
-
                     <table class="w-full text-sm border-collapse border border-slate-300 mb-6">
                         <thead class="bg-slate-100">
                             <tr>
@@ -410,7 +422,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                     <div class="flex justify-between items-end border-t border-dashed border-slate-400 pt-6 mt-8">
                         <div class="w-full max-w-[60%]">
                             <p class="text-center font-bold tracking-widest text-sm mb-2">00190.00009 01234.567890 00000.000000 1 000000000000</p>
@@ -419,7 +430,6 @@
                         <p class="text-xs text-slate-400">Autenticação Mecânica</p>
                     </div>
                 </div>
-
                 <div class="text-center bg-slate-100 p-4 print:hidden flex justify-center gap-4 border-t border-slate-300">
                     <button onclick="navigateAdmin('relatorios')" class="text-slate-700 font-bold px-6 py-2 hover:bg-slate-200 border border-slate-300 rounded shadow-sm">Voltar</button>
                     <button onclick="window.print()" class="bg-slate-900 text-white px-8 py-2 rounded font-bold shadow-md hover:bg-slate-800">Imprimir PDF</button>
