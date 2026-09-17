@@ -8,13 +8,11 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #1e293b; }
 ::-webkit-scrollbar-thumb { background: #6b7280; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
 
-/* Calendar Day Styles */
 .cal-day {
     aspect-ratio: 1;
     display: flex;
@@ -34,29 +32,20 @@
 .cal-day.today { border: 2px solid #0ea5e9; color: #0ea5e9; background-color: #f0f9ff; }
 .cal-day.has-pending { background-color: #fef3c7; border-color: #f59e0b; color: #b45309; cursor: pointer; }
 .cal-day.has-overdue { background-color: #ffe4e6; border-color: #e11d48; color: #be123c; cursor: pointer; }
-.cal-day:hover.has-pending { background-color: #fde68a; }
-.cal-day:hover.has-overdue { background-color: #fecdd3; }
+.cal-day:hover.has-pending { background-color: #fde68a; transform: scale(1.05); }
+.cal-day:hover.has-overdue { background-color: #fecdd3; transform: scale(1.05); }
 
-/* Badge dot for calendar */
-.cal-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-top: 2px;
-}
+.cal-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 2px; }
 .cal-dot.pending { background-color: #f59e0b; }
 .cal-dot.overdue { background-color: #e11d48; }
 
-/* Fake Barcode */
 .barcode-fake {
-    background: repeating-linear-gradient(
-        90deg, #1e293b 0, #1e293b 2px, transparent 2px, transparent 4px, #1e293b 4px, #1e293b 5px, transparent 5px, transparent 8px, #1e293b 8px, #1e293b 12px, transparent 12px, transparent 14px
-    );
+    background: repeating-linear-gradient(90deg, #1e293b 0, #1e293b 2px, transparent 2px, transparent 4px, #1e293b 4px, #1e293b 5px, transparent 5px, transparent 8px, #1e293b 8px, #1e293b 12px, transparent 12px, transparent 14px);
 }
 
 @media print {
     body { background-color: white !important; color: black !important; }
-    nav, .print\:hidden, #store-view, footer { display: none !important; }
+    nav, .print\:hidden, #store-view, footer, #calendar-modal { display: none !important; }
     #admin-view { background-color: white !important; min-h-0; }
     #boleto-view { box-shadow: none !important; border: none !important; width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
 }
